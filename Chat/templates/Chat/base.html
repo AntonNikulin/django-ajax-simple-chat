@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Ajax chat</title>
+    {% load staticfiles %}
+    <script type="text/javascript" src="{% static "jquery-1.10.2.min.js" %}"></script>
+
+    <script type="text/javascript" src="{% static "jquery.ui.core.js" %}"></script>
+    <script type="text/javascript" src="{% static "jquery.ui.widget.js" %}"></script>
+    <script type="text/javascript" src="{% static "jquery.ui.mouse.js" %}"></script>
+    <script type="text/javascript" src="{% static "jquery.ui.draggable.js" %}"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static "main.css" %}">
+
+    <script type="text/javascript" src="{% static "script.js" %}"></script>
+</head>
+<body>
+    <div id="chat-container">
+    <h2 id="chat-header">Chat</h2>
+        <div id="chat-main">
+            {% for mes in lastMessages reversed %}
+                <p class="old-message">
+                    <span class="message-id">#{{ mes.id }}</span><span class="message-user">{{ mes.User }}:</span><span class="message-text">{{ mes.Text }}</span>
+                </p>
+            {% endfor %}
+        </div>
+        <div id="control">
+            <label for="chat-user">Name: <input id="chat-user" type="text" value="anonym"/></label>
+            <label for="chat-input">Message: <input id="chat-input" type="text" value="test message"/></label>
+            <div id="send-button">Tell</div>
+        </div>
+        <h2 id="chat-footer"></h2>
+    </div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+{% for m in messages %}
+    <p class="new-message">
+        <span class="message-id">#{{ m.id }}</span><span class="message-user">{{ m.User }}:</span><span class="message-text">{{ m.Text }}</span>
+    </p>
+{% endfor %}
